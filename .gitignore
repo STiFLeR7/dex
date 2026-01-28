@@ -2,3 +2,12 @@
 venv/
 doc/
 web/
+node_modules/
+*.log
+.DS_Store
+__pycache__/
+*.pyc
+dist/
+build/
+.next/
+uploads/
