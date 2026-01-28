@@ -125,7 +125,7 @@ dex/
 
 ```powershell
 # Clone the repository
-git clone https://github.com/yourusername/dex.git
+git clone https://github.com/STiFLeR7/dex.git
 cd dex
 
 # Create Python virtual environment
