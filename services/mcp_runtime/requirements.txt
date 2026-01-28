@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+opik
+pydantic
+httpx
+python-dotenv
+websockets
+pyyaml

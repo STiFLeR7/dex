@@ -1,0 +1,72 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dex-runtime
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dex-runtime
+  template:
+    metadata:
+      labels:
+        app: dex-runtime
+    spec:
+      containers:
+      - name: runtime
+        image: dex-runtime:latest  # Local build
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8000
+        env:
+        - name: OPIK_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: dex-secrets
+              key: opik-api-key
+        - name: OPIK_WORKSPACE
+          value: "dex"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dex-runtime
+spec:
+  selector:
+    app: dex-runtime
+  ports:
+  - port: 8000
+    targetPort: 8000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dex-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dex-web
+  template:
+    metadata:
+      labels:
+        app: dex-web
+    spec:
+      containers:
+      - name: web
+        image: dex-web:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dex-web
+spec:
+  selector:
+    app: dex-web
+  type: LoadBalancer  # For local access
+  ports:
+  - port: 3000
+    targetPort: 3000

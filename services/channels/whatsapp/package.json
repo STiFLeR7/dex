@@ -1,0 +1,17 @@
+{
+    "name": "dex-whatsapp-bot",
+    "version": "1.0.0",
+    "description": "WhatsApp channel adapter for Dex AI Assistant using Baileys",
+    "main": "bot.js",
+    "type": "module",
+    "scripts": {
+        "start": "node bot.js",
+        "dev": "node --watch bot.js"
+    },
+    "dependencies": {
+        "@whiskeysockets/baileys": "^6.6.0",
+        "qrcode-terminal": "^0.12.0",
+        "dotenv": "^16.3.1",
+        "pino": "^8.17.2"
+    }
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Dex - Personal AI Assistant",
+  "description": "A persistent, memory-aware personal assistant that syncs across Web and WhatsApp. Features context tracking, reminders, and notes organization.",
+  "requestFramePermissions": []
+}
